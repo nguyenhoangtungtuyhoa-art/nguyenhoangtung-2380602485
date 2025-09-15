@@ -17,9 +17,6 @@ namespace baiTapVeNha2
             Name = name;
             Age = age;
         }
-        public void inputInfor()
-        {
-            Console.WriteLine("%-4s|%-20s|%2d", Id, Name, Age);
-        }
     }
 }
+
