@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace baiTapVeNha2
             stuList.Add(new Student(2301, "Nguyễn Hoàng Tùng", 20));
             stuList.Add(new Student(2302, "Nguyễn Hoàng Khánh  Vy", 19));
             stuList.Add(new Student(2303, "Nguyễn Hoàng Khánh Huyền", 21));
-            stuList.Add(new Student(2304, "Nguyễn Hoàng Thanh Trúc", 22));
+            stuList.Add(new Student(2304, "Nguyễn Hoàng Thanh Trúc", 17));
             stuList.Add(new Student(2305, "Nguyễn Hoàng Gia Uyên", 10));
             int choice;
             do
@@ -29,34 +29,20 @@ namespace baiTapVeNha2
                 {
                     case 1:
                         {
-                            if (stuList.Any())
+                            Console.WriteLine("output information student:  ");
+                            foreach (Student student in stuList)
                             {
-                                Console.WriteLine("List empty");
+                                Console.WriteLine("{0,-4} | {1,-40} | {2,2}", student.Id, student.Name, student.Age);
                             }
-                            else
-                            {
-                                Console.WriteLine("output information student:  ");
-                                foreach (Student student in stuList)
-                                {
-                                    Console.WriteLine("{0,-4} | {1,-40} | {2,2}", student.Id, student.Name, student.Age);
-                                }
-                            }
+                            break;
                         }
-                        break;
                     case 2:
                         {
-                            if (stuList.Any())
+                            Console.WriteLine("output students list aged 15 to 18:  ");
+                            var seachAge = stuList.Where(student => student.Age >= 15 && student.Age <= 18);
+                            foreach (Student student in seachAge)
                             {
-                                Console.WriteLine("No student aged 15 to 18 in the list ");
-                            }
-                            else
-                            {
-                                Console.WriteLine("output students list aged 15 to 18:  ");
-                                var seachAge = stuList.Where(student => student.Age >= 15 && student.Age <= 18);
-                                foreach (Student student in seachAge)
-                                {
-                                    Console.WriteLine("{0,-4} | {1,-40} | {2,2}", student.Id, student.Name, student.Age);
-                                }
+                                Console.WriteLine("{0,-4} | {1,-40} | {2,2}", student.Id, student.Name, student.Age);
                             }
                             break;
                         }
