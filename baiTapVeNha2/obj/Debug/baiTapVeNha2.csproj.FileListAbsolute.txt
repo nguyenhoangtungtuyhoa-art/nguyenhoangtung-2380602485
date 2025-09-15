@@ -1,0 +1,8 @@
+D:\C#\baiTapVeNha2\baiTapVeNha2\bin\Debug\baiTapVeNha2.exe.config
+D:\C#\baiTapVeNha2\baiTapVeNha2\bin\Debug\baiTapVeNha2.exe
+D:\C#\baiTapVeNha2\baiTapVeNha2\bin\Debug\baiTapVeNha2.pdb
+D:\C#\baiTapVeNha2\baiTapVeNha2\obj\Debug\baiTapVeNha2.csproj.AssemblyReference.cache
+D:\C#\baiTapVeNha2\baiTapVeNha2\obj\Debug\baiTapVeNha2.csproj.CoreCompileInputs.cache
+D:\C#\baiTapVeNha2\baiTapVeNha2\obj\Debug\baiTapVeNha2.exe
+D:\C#\baiTapVeNha2\baiTapVeNha2\obj\Debug\baiTapVeNha2.pdb
+D:\C#\baiTapVeNha2\baiTapVeNha2\obj\Debug\baiTapVeNha2.exe.config
