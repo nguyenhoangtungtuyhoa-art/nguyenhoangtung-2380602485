@@ -1,0 +1,175 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace baitap4.sc
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string mssv = txtMSSV.Text;
+            string hoten = txtHoTen.Text;
+            string gioitinh = rdoNam.Checked ? "Nam" : "Nữ";
+            string diem = txtDiem.Text;
+            string khoa = cbChuyenNganh.SelectedItem?.ToString();
+
+            if (string.IsNullOrWhiteSpace(mssv) || string.IsNullOrWhiteSpace(hoten))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ MSSV và Họ Tên!");
+                return;
+            }
+            bool found = false;
+            foreach (DataGridViewRow row in dGvStuList.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == mssv)
+                {
+
+                    row.Cells[1].Value = hoten;
+                    row.Cells[2].Value = gioitinh;
+                    row.Cells[3].Value = diem;
+                    row.Cells[4].Value = khoa;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                string[] row = { mssv, hoten, gioitinh, diem, khoa };
+                dGvStuList.Rows.Add(row);
+            }
+
+            CapNhatSoLuong();
+            ClearForm();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            if (dGvStuList.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa các dòng đã chọn?", "Xác nhận",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    for (int i = dGvStuList.SelectedRows.Count - 1; i >= 0; i--)
+                    {DataGridViewRow sel = dGvStuList.SelectedRows[i];
+                        if (!sel.IsNewRow)
+                            dGvStuList.Rows.Remove(sel);
+                    }
+
+                    CapNhatSoLuong();
+                    ClearForm();
+                }
+                return;
+            }
+
+            string mssvToDelete = txtMSSV.Text.Trim();
+            if (!string.IsNullOrEmpty(mssvToDelete))
+            {
+                for (int i = dGvStuList.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = dGvStuList.Rows[i];
+                    if (row.IsNewRow) continue;
+                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == mssvToDelete)
+                    {
+                        if (MessageBox.Show($"Xóa sinh viên MSSV = {mssvToDelete} ?", "Xác nhận",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            dGvStuList.Rows.RemoveAt(i);
+                            CapNhatSoLuong();
+                            ClearForm();
+                            return;
+                        }
+                    }
+                }
+
+                MessageBox.Show("Không tìm thấy MSSV để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            MessageBox.Show("Vui lòng chọn dòng cần xóa hoặc nhập MSSV vào ô Mã sinh viên.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        private void CapNhatSoLuong()
+        {
+            int soNam = 0, soNu = 0;
+            foreach (DataGridViewRow row in dGvStuList.Rows)
+            {
+                if (row.IsNewRow) continue; // bỏ hàng thêm mới
+                string gioi = row.Cells[2].Value?.ToString();
+                if (gioi == "Nam") soNam++;
+                else if (gioi == "Nữ") soNu++;
+            }
+            txtTongNam.Text = soNam.ToString();
+            txtTongNu.Text = soNu.ToString();
+        }
+        private void ClearForm()
+        {
+            txtMSSV.Clear();
+            txtHoTen.Clear();
+            txtDiem.Clear();
+            rdoNam.Checked = false;
+            rdoNu.Checked = false;
+            cbChuyenNganh.SelectedIndex = -1;
+            txtMSSV.Focus();
+        }
+    }
+}
