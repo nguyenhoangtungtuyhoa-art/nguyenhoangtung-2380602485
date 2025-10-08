@@ -1,0 +1,11 @@
+C:\C#\BaiTap5\bin\Debug\BaiTap5.exe.config
+C:\C#\BaiTap5\bin\Debug\BaiTap5.exe
+C:\C#\BaiTap5\bin\Debug\BaiTap5.pdb
+C:\C#\BaiTap5\obj\Debug\BaiTap5.csproj.AssemblyReference.cache
+C:\C#\BaiTap5\obj\Debug\BaiTap5.Form1.resources
+C:\C#\BaiTap5\obj\Debug\BaiTap5.Properties.Resources.resources
+C:\C#\BaiTap5\obj\Debug\BaiTap5.csproj.GenerateResource.cache
+C:\C#\BaiTap5\obj\Debug\BaiTap5.csproj.CoreCompileInputs.cache
+C:\C#\BaiTap5\obj\Debug\BaiTap5.exe
+C:\C#\BaiTap5\obj\Debug\BaiTap5.pdb
+C:\C#\BaiTap5\obj\Debug\BaiTap5.exe.config
